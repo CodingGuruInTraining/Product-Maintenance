@@ -16,7 +16,7 @@ namespace Project_18_2_Product_Maintenance
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ProdMaint());
         }
     }
 }
