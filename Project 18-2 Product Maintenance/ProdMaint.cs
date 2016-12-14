@@ -19,6 +19,7 @@ namespace Project_18_2_Product_Maintenance
         {
             InitializeComponent();
         }
+        // Initializes boolean variable for determining whether to activate Product Code textbox
         private bool newEntry = false;
         private void productsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -108,28 +109,6 @@ namespace Project_18_2_Product_Maintenance
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-        //private void fillBy_productCodeToolStripButton_Click(object sender, EventArgs e)
-        //{
-        //    // Adds exception handling
-        //    try
-        //    {
-        //        // Stores textbox value
-        //        string prodCode = productCodeToolStripTextBox.Text;
-        //        // Validates product code search entry
-        //        if (checkEmpty(prodCode, "Product Code") && checkLength(prodCode, "Product Code"))
-        //        {
-        //            // Fills table adapter with one result line
-        //            //this.productsTableAdapter.FillByProdCode(this.techSupport_DataDataSet.Products, productCodeToolStripTextBox.Text);
-        //            this.productsTableAdapter.FillBy_productCode(this.techSupport_DataDataSet.Products, productCodeToolStripTextBox.Text);
-        //            //this.productsTableAdapter.Fill(this.techSupport_DataDataSet.Products);
-        //        }
-        //    }
-        //    // Catch for all exceptions
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, ex.GetType().ToString());
-        //    }   
-        //}
 
         private bool checkEmpty(string value, string vname)
         {
@@ -170,6 +149,7 @@ namespace Project_18_2_Product_Maintenance
 
         private bool checkDate(string value, string vname)
         {
+            // Checks if textbox value is in a DateTime format.
             DateTime aDate;
             bool result = DateTime.TryParse(value, out aDate);
             if (result == false)
@@ -182,12 +162,14 @@ namespace Project_18_2_Product_Maintenance
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
+            // Product Code textbox is activated when New Item button is clicked.
             newEntry = true;
             prodCodeToggle(1);
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
+            // Product Code textbox is deactivated when Delete Item button is clicked.
             prodCodeToggle(2);
         }
 
@@ -210,18 +192,5 @@ namespace Project_18_2_Product_Maintenance
                     break;
             }              
         }
-
-        //private void fillByProductCodeToolStripButton_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        this.productsTableAdapter.FillByProductCode(this.techSupport_DataDataSet.Products, productCodeToolStripTextBox1.Text);
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        System.Windows.Forms.MessageBox.Show(ex.Message);
-        //    }
-
-        //}
     }
 }
